@@ -1,38 +1,26 @@
 import { useState, Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { RiCloseFill, RiCoupon3Line, RiHome9Line, RiLogoutCircleLine } from "react-icons/ri";
-import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
-import {  FaUsers } from "react-icons/fa";
-import {  MdBarChart, MdHistory,  MdLocationOn,  MdPayment,  MdSettings, MdSportsGymnastics, MdStorefront, MdSubscriptions } from "react-icons/md";
+import { 
+  RiHome9Line, 
+  RiUserLine, 
+  RiListCheck2, 
+  RiMenu2Line, 
+  RiServiceLine, 
+  RiBriefcaseLine, 
+  RiFileTextLine, 
+  RiLogoutCircleFill,
+  RiCloseFill
+} from "react-icons/ri";
 import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
 import { getMenu } from "../../components/data";
-import {  MdInsights } from "react-icons/md";
-import { VscCalendar, VscQuestion } from "react-icons/vsc";
-import { GiCook, GiMeal, GiWeightLiftingUp } from "react-icons/gi";
-import { IoLocationSharp } from "react-icons/io5";
-import { TbTruckDelivery } from "react-icons/tb";
 const ICONS: Record<string, React.ElementType> = {
-  RiHome9Line,
-  AiOutlineUser,
-  FaUsers, 
-  MdInsights,
-  MdStorefront,
-  MdSportsGymnastics,
-  MdHistory,
-  MdBarChart,
-  VscQuestion,
-  MdSettings,
-  GiWeightLiftingUp,
-  MdPayment,
-  MdSubscriptions,
-  VscCalendar,
-  AiOutlineShoppingCart,
-  RiCoupon3Line,
-  MdLocationOn,
-  IoLocationSharp,
-  GiMeal,
-  TbTruckDelivery,
-  GiCook
+  RiHome9Line, 
+  RiUserLine, 
+  RiListCheck2, 
+  RiMenu2Line, 
+  RiServiceLine, 
+  RiBriefcaseLine, 
+  RiFileTextLine 
 };
 interface SidebarProps {
   smallSidebar: boolean;
@@ -130,7 +118,7 @@ const Sidebar: React.FC<SidebarProps> = ({ smallSidebar, setSmallSidebar }) => {
             <div>
               <Link to="/login">
                 <div className="flex items-center px-5 py-2 rounded-lg bg-gray-150/5 text-gray-600 gap-2.5 cursor-pointer font-medium hover:bg-gray-150/10 drop-shadow hover:text-gray-150">
-                  <RiLogoutCircleLine />
+                  <RiLogoutCircleFill />
                   {!smallSidebar && <p>Logout</p>}
                 </div>
               </Link>

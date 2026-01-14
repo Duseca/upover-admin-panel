@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@layer base{
+  button{
+    cursor:pointer
+  }
+}
+body{
+    background-color: #F0F0F0;
+    margin: 0;
+      margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
