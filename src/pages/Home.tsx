@@ -3,8 +3,7 @@ import { Link } from "react-router-dom"
 import UniversalChart from "../components/Chart"
 import Header from "../layouts/partials/Header"
 import {  FaUser } from "react-icons/fa"
-import { MdSportsGymnastics, MdStorefront } from "react-icons/md"
-import { VscQuestion } from "react-icons/vsc"
+import { RiBriefcaseLine, RiListCheck2, RiServiceLine } from "react-icons/ri"
 const Home = () => {
   return (
     <div>
@@ -15,44 +14,47 @@ const Home = () => {
             title="Users"
             count={5}
             icon={FaUser}
-            link="/users"
+            link="/user"
           />
              <Card
-            title=""
+            title="Category"
             count={2}
-            icon={MdSportsGymnastics}
-            link="/coaches"
+            icon={RiListCheck2}
+            link="/category"
           />
           <Card
-            title=""
+            title="Service"
             count={3}
-            icon={MdStorefront}
-            link="/vendors"
+            icon={RiServiceLine}
+            link="/service"
           />
           <Card
-            title=""
+            title="Jobs"
             count={3}
-            icon={VscQuestion}
-            link="/faqs"
+            icon={RiBriefcaseLine}
+            link="/job"
           />
         </div>
         <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-          <UniversalChart
-            type="multi-line"
-            title="Sales Overview"
-            subtitle="Last 6 Months"
-            height={350}
-            data={[
-              { month: "Jan", sales: 400, revenue: 240 },
-              { month: "Feb", sales: 300, revenue: 139 },
-              { month: "Mar", sales: 500, revenue: 421 },
-              { month: "Apr", sales: 250, revenue: 200 },
-            ]}
-            xKey="month"
-            yKeys={["sales", "revenue"]}
-            colors={["#16a34a", "#2563eb"]}
-          />
-        </div>
+  <UniversalChart
+    type="multi-line"
+    title="User Engagement Overview"
+    subtitle="Last 6 Months"
+    height={350}
+    data={[
+      { month: "Jan", likes: 420, comments: 120, shares: 50 },
+      { month: "Feb", likes: 380, comments: 100, shares: 65 },
+      { month: "Mar", likes: 500, comments: 200, shares: 80 },
+      { month: "Apr", likes: 450, comments: 150, shares: 70 },
+      { month: "May", likes: 600, comments: 250, shares: 90 },
+      { month: "Jun", likes: 550, comments: 220, shares: 100 },
+    ]}
+    xKey="month"
+    yKeys={["likes", "comments", "shares"]}
+    colors={["#ADDF2F", "#1A8DFF", "#1DE1FF"]}
+  />
+</div>
+
       </div>
     </div>
   )

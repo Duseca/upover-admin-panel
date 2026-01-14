@@ -9,6 +9,7 @@ export const getMenu = () => {
     { key: "subcategory", label: "Sub-Category", to: "/sub-category", icon: "RiMenu2Line" },
     { key: "service", label: "Service", to: "/service", icon: "RiServiceLine" },
     { key: "jobs", label: "Jobs", to: "/job", icon: "RiBriefcaseLine" },
+    { key: "system", label: "System health", to: "/system", icon: "RiHeartLine" },
     { key: "content", label: "Content", to: "/content", icon: "RiFileTextLine" },
   ];
   return MENU
@@ -206,6 +207,7 @@ export const usersData = [
     subscriptionPlan: "Premium",
     status: "Active",
     type: "ServiceProvider",
+    reported:false
   },
 
   // Service Provider Company
@@ -225,6 +227,7 @@ export const usersData = [
     taxId: "TAX-987654",
     status: "Inactive",
     type: "ServiceProviderCompany",
+    reported:true
   },
 
   // Another Service Provider
@@ -253,9 +256,8 @@ export const usersData = [
     subscriptionPlan: "Basic",
     status: "Active",
     type: "ServiceProvider",
+    reported:false
   },
-
-  // Regular Customer
   {
     id: 4,
     name: "Bob Williams",
@@ -266,6 +268,7 @@ export const usersData = [
       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1600",
     status: "Active",
     type: "Customer",
+    reported:false
   },
 ];
 export const servicesData = [

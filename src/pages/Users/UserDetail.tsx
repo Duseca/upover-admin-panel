@@ -9,16 +9,27 @@ import { useState } from "react";
 
 
 const UserDetail = () => {
-     const { userId } = useParams();
+ const { userId } = useParams();
   const user = usersData.find((u) => u.id == Number(userId));
-  const [userStatus, setUserStatus] = useState(
-    usersData.find((u) => u.id === Number(userId))?.status
-  );
+  const [userStatus, setUserStatus] = useState(user?.status);
+  const [isReported, setIsReported] = useState(user?.reported || false);
+
   const handleApprove = () => {
     setUserStatus("Active");
     alert(`${user?.name}'s account has been approved!`);
   };
-   if (!user) {
+
+  const handleSuspend = () => {
+    setUserStatus("Suspended");
+    alert(`${user?.name}'s account has been suspended!`);
+  };
+
+  const handleResolveReport = () => {
+    setIsReported(false);
+    alert(`Report on ${user?.name} has been resolved.`);
+  };
+
+  if (!user) {
     return (
       <div className="p-6">
         <Header header="User Details" link="/user" />
@@ -32,9 +43,27 @@ const UserDetail = () => {
   return (
      <div>
       <Header header="Manage User Detail" link="/" />
-
+       
       <div className="max-w-screen-2xl mx-auto px-4 py-6">
-        {/* Approve Button */}
+        {isReported && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <p className="text-red-700 font-medium">This user has been reported by other users.</p>
+            <div className="flex gap-2 flex-wrap">
+              <button
+                onClick={handleResolveReport}
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Resolve Report
+              </button>
+              <button
+                onClick={handleSuspend}
+                className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
+              >
+                Suspend User
+              </button>
+            </div>
+          </div>
+        )}
         {(user.type === "ServiceProvider" || user.type === "ServiceProviderCompany") &&
           userStatus !== "Active" && (
             <div className="flex justify-end mb-4">
@@ -46,12 +75,9 @@ const UserDetail = () => {
               </button>
             </div>
           )}
-        {/* Main Card */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden border-0 my-5">
           <div className="p-6 md:p-8">
-            {/* Profile Section */}
             <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
-              {/* Profile Image */}
               <div className="flex flex-col items-center lg:items-start space-y-4">
                 <div className="relative">
                   <img
@@ -66,7 +92,6 @@ const UserDetail = () => {
                   </div>
                 </div>
                 
-                {/* Subscription Badge if available */}
                 {user.subscriptionPlan && (
                   <div className="mt-4 text-center">
                     <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-medium text-sm">
@@ -76,8 +101,6 @@ const UserDetail = () => {
                   </div>
                 )}
               </div>
-
-              {/* User Info */}
               <div className="flex-1">
                 <div className="mb-6">
                   <h2 className="text-2xl font-bold text-gray-900">{user.name}</h2>
@@ -104,8 +127,6 @@ const UserDetail = () => {
                     </p>
                   )}
                 </div>
-
-                {/* Languages */}
                 {user.language && user.language?.length > 0 && (
                   <div className="mb-6">
                     <h4 className="font-medium text-gray-700 mb-2">Languages</h4>
@@ -123,11 +144,7 @@ const UserDetail = () => {
                 )}
               </div>
             </div>
-
-            {/* Separator */}
             <div className="border-t border-gray-200 my-6 md:my-8"></div>
-
-            {/* Service Provider Details */}
             {user.type === "ServiceProvider" && (
               <div className="space-y-6 md:space-y-8">
                 <div>
@@ -136,7 +153,6 @@ const UserDetail = () => {
                   </h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                    {/* Personal Information */}
                     <div className="bg-white rounded-lg border border-gray-200 p-4 md:p-5 shadow-sm">
                       <h4 className="font-semibold text-gray-800 mb-4 flex items-center">
                         <FaUser className="mr-1" />
@@ -212,8 +228,6 @@ const UserDetail = () => {
                 </div>
               </div>
             )}
-
-            {/* Company Details */}
             {user.type === "ServiceProviderCompany" && (
               <div className="space-y-6 md:space-y-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 md:mb-6 pb-2 border-b border-gray-200">

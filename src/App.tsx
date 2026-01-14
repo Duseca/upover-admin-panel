@@ -13,6 +13,7 @@ import ServiceDetail from "./pages/Services/ServiceDetail";
 import Jobs from "./pages/Jobs/Jobs";
 import JobDetails from "./pages/Jobs/JobDetails";
 import Login from "./pages/Auth/Login";
+import SystemHealth from "./pages/System Health/SystemHealth";
 
 function App() {
 
@@ -21,7 +22,6 @@ function App() {
 
     <Route path="/" element={<RootLayout />} >
      <Route index element={<Home />} />
-    
      <Route path='/user' element={<Users />} />
      <Route path='/user/:userId' element={<UserDetail />} />
      <Route path='/category' element={<Categories />} />
@@ -29,7 +29,8 @@ function App() {
      <Route path='/service' element={<Services />} />
      <Route path='/service/:serviceId' element={<ServiceDetail />} />
      <Route path='/job' element={<Jobs />} />
-      <Route path='/job/:id' element={<JobDetails />} />
+     <Route path='/job/:id' element={<JobDetails />} />
+     <Route path='/system' element={<SystemHealth />} />
      <Route path='/content' element={<Content />} />
      </Route>
       <Route path='/login' element={<Login />} />

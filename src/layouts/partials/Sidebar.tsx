@@ -9,9 +9,11 @@ import {
   RiBriefcaseLine, 
   RiFileTextLine, 
   RiLogoutCircleFill,
-  RiCloseFill
+  RiCloseFill,
+  RiHeartLine 
 } from "react-icons/ri";
 import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
+import logo from '../../assets/logo.svg'
 import { getMenu } from "../../components/data";
 const ICONS: Record<string, React.ElementType> = {
   RiHome9Line, 
@@ -20,7 +22,8 @@ const ICONS: Record<string, React.ElementType> = {
   RiMenu2Line, 
   RiServiceLine, 
   RiBriefcaseLine, 
-  RiFileTextLine 
+  RiFileTextLine,
+  RiHeartLine 
 };
 interface SidebarProps {
   smallSidebar: boolean;
@@ -98,7 +101,7 @@ const Sidebar: React.FC<SidebarProps> = ({ smallSidebar, setSmallSidebar }) => {
               {!smallSidebar && (
                 <li>
                   <Link to="/" className="flex items-center justify-center rounded-lg">
-                    {/* <img src={logo} alt="Logo" className="object-contain w-20 h-20" /> */}
+                    <img src={logo} alt="Logo" className="object-contain w-20 h-20" />
                   </Link>
                 </li>
               )}
