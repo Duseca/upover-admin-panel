@@ -39,12 +39,6 @@ const SubCategoryModal: React.FC<Props> = ({
 
   if (!isOpen) return null;
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setPreview(URL.createObjectURL(file));
-  };
-
   const handleSubmit = () => {
     onSave({
       id: subCategory?.id || Date.now(),
@@ -86,26 +80,6 @@ const SubCategoryModal: React.FC<Props> = ({
               ))}
             </select>
           </div>
-
-          {/* Image Upload */}
-          <label className="flex cursor-pointer gap-4 p-4 border border-dashed rounded-xl hover:border-primary">
-            {preview && (
-              <img
-                src={preview}
-                className="w-16 h-16 rounded-lg object-cover"
-              />
-            )}
-            <div>
-              <p className="font-medium">Upload image</p>
-              <p className="text-sm text-gray-500">PNG / JPG</p>
-            </div>
-            <input
-              type="file"
-              accept="image/*"
-              hidden
-              onChange={handleImageChange}
-            />
-          </label>
         </div>
 
         <div className="flex justify-end gap-3 mt-8">
