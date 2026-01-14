@@ -7,7 +7,7 @@ import { categoriesData } from "../../components/data";
 export interface Category {
   id: number;
   title: string;
-  description: string;
+  hexCode: string;
   image: string;
   dateAndTime: string;
 }
@@ -71,9 +71,6 @@ const Categories = () => {
           Title
         </th>
          <th className="px-6 py-3">
-          Description
-        </th>
-         <th className="px-6 py-3">
           Date & Time
         </th>
          <th className="px-6 py-3">
@@ -103,16 +100,11 @@ const Categories = () => {
               </div>
             </div>
           </td>
-          <td className="px-6 py-4">
-            <p className="text-gray-500 line-clamp-2 max-w-md">
-              {item.description}
-            </p>
-          </td>
           <td className="px-6 py-4 text-gray-500 whitespace-nowrap">
             {item.dateAndTime}
           </td>
           <td className="px-6 py-4">
-            <div className="flex justify-end gap-1">
+            <div className="flex justify-start gap-1">
               <button
                 onClick={() => handleEditCategory(item)}
                 className="p-2 rounded-md cursor-pointer text-gray-400 

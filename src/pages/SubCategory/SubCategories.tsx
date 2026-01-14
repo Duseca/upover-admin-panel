@@ -73,9 +73,6 @@ const SubCategories = () => {
                   Title
                 </th>
                  <th className="px-6 py-3">
-                  Description
-                </th>
-                 <th className="px-6 py-3">
                   Category
                 </th>
                  <th className="px-6 py-3">
@@ -91,24 +88,17 @@ const SubCategories = () => {
                   className="group hover:bg-gray-50/60 transition-colors"
                 >
                   <td className="px-6 py-4 flex items-center gap-4">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-11 h-11 rounded-lg object-cover border border-gray-200"
-                    />
                     <div>
                       <p className="font-medium text-gray-800">{item.title}</p>
                     </div>
                   </td>
-
-                  <td className="px-6 py-4 text-gray-500">{item.description}</td>
 
                   <td className="px-6 py-4 text-gray-500">
                     {categories.find((c) => c.id === item.categoryId)?.title || "-"}
                   </td>
 
                   <td className="px-6 py-4">
-                    <div className="flex justify-end gap-1">
+                    <div className="flex justify-start gap-1">
                       <button
                         onClick={() => handleEdit(item)}
                         className="p-2 rounded-md cursor-pointer text-gray-400 hover:text-green-600 hover:bg-green-50 transition-all"

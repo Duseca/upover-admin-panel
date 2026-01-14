@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import type { Category } from "../../pages/Category/Categories";
 import TextInput from "../UI/TextInput";
-import TextArea from "../UI/TextArea";
 import Button from "../UI/Button";
 interface Props {
   isOpen: boolean;
@@ -17,24 +16,21 @@ const CategoryModal: React.FC<Props> = ({
   category,
 }) => {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [hexCode, setHexCode] = useState("");
   const [_, setImageFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>("");
-
-  /* 🔹 RESET STATE ON OPEN (ADD vs EDIT) */
   useEffect(() => {
     if (!isOpen) return;
 
     if (category) {
       // EDIT
       setTitle(category.title);
-      setDescription(category.description);
       setPreview(category.image);
+      setHexCode(category.hexCode)
       setImageFile(null);
     } else {
       // ADD
       setTitle("");
-      setDescription("");
       setImageFile(null);
       setPreview("");
     }
@@ -56,7 +52,7 @@ const CategoryModal: React.FC<Props> = ({
     onSave({
       id: category?.id || Date.now(),
       title,
-      description,
+      hexCode,
       image: preview,
       dateAndTime: new Date().toLocaleString(),
     });
@@ -76,14 +72,12 @@ const CategoryModal: React.FC<Props> = ({
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-
-          <TextArea
-            label="Description"
-            placeholder="Short description about category"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+          <TextInput
+            label="Hex Color Code"
+            placeholder="#16a34a"
+            value={hexCode}
+            onChange={(e) => setHexCode(e.target.value)}
           />
-
           {/* Image Upload */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-gray-600">

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import TextInput from "../UI/TextInput";
-import TextArea from "../UI/TextArea";
 import Button from "../UI/Button";
 import type { SubCategory } from "../../pages/SubCategory/SubCategories";
 import type { Category } from "../../pages/Category/Categories";
@@ -70,13 +69,6 @@ const SubCategoryModal: React.FC<Props> = ({
             placeholder="Enter subcategory title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-          />
-
-          <TextArea
-            label="Description"
-            placeholder="Short description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
           />
           <div className="flex flex-col">
             <label className="text-sm font-medium text-gray-600 mb-1">

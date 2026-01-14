@@ -12,22 +12,22 @@ const UserDetail = () => {
  const { userId } = useParams();
   const user = usersData.find((u) => u.id == Number(userId));
   const [userStatus, setUserStatus] = useState(user?.status);
-  const [isReported, setIsReported] = useState(user?.reported || false);
+  // const [isReported, setIsReported] = useState(user?.reported || false);
 
   const handleApprove = () => {
     setUserStatus("Active");
     alert(`${user?.name}'s account has been approved!`);
   };
 
-  const handleSuspend = () => {
-    setUserStatus("Suspended");
-    alert(`${user?.name}'s account has been suspended!`);
-  };
+  // const handleSuspend = () => {
+  //   setUserStatus("Suspended");
+  //   alert(`${user?.name}'s account has been suspended!`);
+  // };
 
-  const handleResolveReport = () => {
-    setIsReported(false);
-    alert(`Report on ${user?.name} has been resolved.`);
-  };
+  // const handleResolveReport = () => {
+  //   setIsReported(false);
+  //   alert(`Report on ${user?.name} has been resolved.`);
+  // };
 
   if (!user) {
     return (
@@ -45,7 +45,7 @@ const UserDetail = () => {
       <Header header="Manage User Detail" link="/" />
        
       <div className="max-w-screen-2xl mx-auto px-4 py-6">
-        {isReported && (
+        {/* {isReported && (
           <div className="bg-red-50 border border-red-200 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <p className="text-red-700 font-medium">This user has been reported by other users.</p>
             <div className="flex gap-2 flex-wrap">
@@ -63,7 +63,7 @@ const UserDetail = () => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
         {(user.type === "ServiceProvider" || user.type === "ServiceProviderCompany") &&
           userStatus !== "Active" && (
             <div className="flex justify-end mb-4">
