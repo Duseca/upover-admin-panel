@@ -16,7 +16,7 @@ const JobDetails = () => {
 
   return (
  <div>
-  <Header header={"Manage Jobs"} link="/service" />
+  <Header header={"Manage Jobs Detail"} link="/service" />
   <div className="max-w-screen-2xl mx-auto px-4 py-6">
     <div className="grid grid-cols-12 gap-8">
       {/* Main Content */}
