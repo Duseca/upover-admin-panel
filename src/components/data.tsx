@@ -18,8 +18,7 @@ export const categoriesData: Category[] = [
   {
     id: 1,
     title: "Construction",
-    description:
-      "Services related to building, renovation, and maintenance of structures.",
+    hexCode:'#ADDF2F',
     dateAndTime: "April 10, 2025, 10:00 AM",
     image:
       "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -27,8 +26,7 @@ export const categoriesData: Category[] = [
   {
     id: 2,
     title: "Domestic Work",
-    description:
-      "Household services including cleaning, cooking, and general maintenance.",
+    hexCode:'#1ecbe1',
     dateAndTime: "April 10, 2025, 12:00 PM",
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=60",
@@ -36,8 +34,7 @@ export const categoriesData: Category[] = [
   {
     id: 3,
     title: "Tailoring",
-    description:
-      "Custom stitching, alterations, and clothing design services.",
+    hexCode:'#bd4276',
     dateAndTime: "April 11, 2025, 09:30 AM",
     image:
       "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=800&q=60",
@@ -45,8 +42,7 @@ export const categoriesData: Category[] = [
   {
     id: 4,
     title: "Gardening",
-    description:
-      "Planting, landscaping, and maintenance of gardens and outdoor spaces.",
+     hexCode:'#e51a43',
     dateAndTime: "April 11, 2025, 02:15 PM",
     image:
       "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=800&q=60",
@@ -54,8 +50,7 @@ export const categoriesData: Category[] = [
   {
     id: 5,
     title: "Dog Sitting - Pet Care",
-    description:
-      "Professional pet care services including dog walking, sitting, and grooming.",
+    hexCode:'#d800ff',
     dateAndTime: "April 12, 2025, 11:45 AM",
     image:
       "https://images.unsplash.com/photo-1450778869180-41d0601e046e?q=80&w=1586&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -63,8 +58,7 @@ export const categoriesData: Category[] = [
   {
     id: 6,
     title: "Hospitality - Catering",
-    description:
-      "Catering and hospitality services for events, parties, and gatherings.",
+    hexCode:'#42bd7d',
     dateAndTime: "April 12, 2025, 04:20 PM",
     image:
       "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=60",

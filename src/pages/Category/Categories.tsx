@@ -86,20 +86,48 @@ const Categories = () => {
           className="group hover:bg-gray-50/60 transition-colors"
         >
           {/* Title */}
-          <td className="px-6 py-4">
-            <div className="flex items-center gap-4">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-11 h-11 rounded-lg object-cover border border-gray-200"
-              />
-              <div>
-                <p className="font-medium text-gray-800 leading-tight">
-                  {item.title}
-                </p>
-              </div>
-            </div>
-          </td>
+         <td className="px-6 py-4">
+  <div className="flex items-center gap-4">
+    {/* Image */}
+    <img
+      src={item.image}
+      alt={item.title}
+      className="w-11 h-11 rounded-lg object-cover border border-gray-200"
+    />
+
+    {/* Title + Color */}
+    <div className="space-y-1">
+      <p className="font-medium text-gray-800 leading-tight">
+        {item.title}
+      </p>
+
+      {/* HEX COLOR BADGE */}
+      <div className="flex items-center gap-2">
+        {/* Color Dot */}
+        <span
+          className="w-3 h-3 rounded-full border"
+          style={{ backgroundColor: item.hexCode }}
+        />
+
+        {/* Hex Code Pill */}
+        <span
+          className="text-xs font-mono px-2 py-0.5 rounded-full border cursor-pointer
+          transition-all duration-200 hover:scale-105"
+          style={{
+            color: item.hexCode,
+            borderColor: item.hexCode,
+            backgroundColor: `${item.hexCode}15`, // subtle tint
+          }}
+          title="Click to copy"
+          onClick={() => navigator.clipboard.writeText(item.hexCode)}
+        >
+          {item.hexCode}
+        </span>
+      </div>
+    </div>
+  </div>
+</td>
+
           <td className="px-6 py-4 text-gray-500 whitespace-nowrap">
             {item.dateAndTime}
           </td>
