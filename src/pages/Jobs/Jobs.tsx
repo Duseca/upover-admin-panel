@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { dummyJobs } from "../../components/data";
-import { FiEye, FiMessageCircle, FiSearch, FiThumbsUp } from "react-icons/fi";
+import { FiEye, FiMessageCircle, FiSearch, FiThumbsUp, FiTrash } from "react-icons/fi";
 import Header from "../../layouts/partials/Header";
 import { Link } from "react-router-dom";
+import DeleteModal from "../../components/Modals/DeleteModal";
 export interface Comment {
   id: number;
   user: string;
@@ -31,6 +32,7 @@ export interface JobProps {
 const Jobs = () => {
 
   const [jobs, _] = useState<JobProps[]>(dummyJobs);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   return (
    <div>
       <Header header="Manage Jobs" link="/" />
@@ -114,12 +116,22 @@ const Jobs = () => {
                     </div>
                   </td>
                   <td className="px-6 py-3">
+                  <div className="flex justify-start items-center gap-1">
             <Link
               to={`/job/${job.id}`}
               className="text-gray-400 hover:text-gray-600"
             >
               <FiEye size={20} />
             </Link>
+            <button
+                            onClick={() => setIsDeleteModalOpen(true)}
+                            className="p-2 rounded-md cursor-pointer  text-gray-400 
+                            hover:text-red-600 hover:bg-red-50 
+                            transition-all"
+                          >
+                            <FiTrash />
+                          </button>
+                          </div>
           </td>
                 </tr>
               ))}
@@ -127,6 +139,11 @@ const Jobs = () => {
           </table>
         </div>
       </div>
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        entityType="Job"
+      />
     </div>
   )
 }

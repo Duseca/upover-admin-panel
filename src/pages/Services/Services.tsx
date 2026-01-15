@@ -1,10 +1,13 @@
-import { FiEye, FiSearch } from "react-icons/fi"
+import { FiEye, FiSearch, FiTrash } from "react-icons/fi"
 import { Link } from "react-router-dom"
 import { servicesData } from "../../components/data"
 import Header from "../../layouts/partials/Header"
+import { useState } from "react"
+import DeleteModal from "../../components/Modals/DeleteModal"
 
 
 const Services = () => {
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   return (
      <div>
       <Header header="Manage Services" link="" />
@@ -42,19 +45,33 @@ const Services = () => {
           <td className="px-6 py-3 text-gray-500">${service.pricePerHour}</td>
           <td className="px-6 py-3 text-gray-500 truncate max-w-xs">{service.details}</td>
           <td className="px-6 py-3">
+            <div className="flex justify-start items-center gap-1">
             <Link
               to={`/service/${service.id}`}
               className="text-gray-400 hover:text-gray-600"
             >
               <FiEye size={20} />
             </Link>
+             <button
+                                        onClick={() => setIsDeleteModalOpen(true)}
+                                        className="p-2 rounded-md cursor-pointer  text-gray-400 
+                                        hover:text-red-600 hover:bg-red-50 
+                                        transition-all"
+                                      >
+                                        <FiTrash />
+                                      </button>
+            </div>
           </td>
         </tr>
       ))}
     </tbody>
   </table>
 </div>
-
+ <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        entityType="Service"
+      />
       </div>
     </div>
   )
